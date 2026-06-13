@@ -1,0 +1,16 @@
+// Add this to your HomeScreen navigation buttons
+// This is an example snippet to add ChatBot button to your home screen
+
+// In home_screen.dart, add this button with your other navigation buttons:
+
+/*
+ElevatedButton.icon(
+  onPressed: () => Navigator.pushNamed(context, '/chatbot'),
+  icon: const Icon(Icons.chat_bubble_outline),
+  label: const Text('Chat Bot'),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.indigo,
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+  ),
+),
+*/

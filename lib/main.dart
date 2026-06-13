@@ -7,6 +7,7 @@ import 'viewmodels/ramadhan_viewmodel.dart';
 import 'viewmodels/asmaul_viewmodel.dart';
 import 'viewmodels/auth_viewmodel.dart';
 import 'viewmodels/qiblat_view_model.dart';
+import 'viewmodels/chatbot_viewmodel.dart';
 import 'repositories/qiblat_repository.dart';
 import 'services/qiblat_service.dart';
 import 'views/splash_screen.dart';
@@ -19,6 +20,7 @@ import 'views/jadwal_screen.dart';
 import 'views/ramadhan_screen.dart';
 import 'views/asmaul_screen.dart';
 import 'views/qiblat_screen.dart';
+import 'views/chatbot_screen.dart';
 
 import 'dart:io' show Platform;
 
@@ -48,13 +50,14 @@ class MuslimApp extends StatelessWidget {
             QiblatRepository(QiblatService()),
           ),
         ),
+        ChangeNotifierProvider(create: (_) => ChatBotViewModel()),
       ],
       child: MaterialApp(
-        title: 'Muslim App',
+        title: 'Spiritual Companion',
         theme: ThemeData(
-          primarySwatch: Colors.indigo,
+          primarySwatch: Colors.teal,
           useMaterial3: true,
-          scaffoldBackgroundColor: const Color(0xFFF3F3FF),
+          scaffoldBackgroundColor: const Color(0xFFF0FFFE),
         ),
         initialRoute: '/',
         routes: {
@@ -68,6 +71,7 @@ class MuslimApp extends StatelessWidget {
           '/ramadhan': (context) => const RamadhanScreen(),
           '/asmaul': (context) => const AsmaulScreen(),
           '/qiblat': (context) => const QiblatScreen(),
+          '/chatbot': (context) => const ChatBotScreen(),
         },
         debugShowCheckedModeBanner: false,
       ),

@@ -8,31 +8,34 @@ import '../painters/home_compass_painter.dart';
 import 'package:animate_do/animate_do.dart';
 
 // ─────────────────────────────────────────
-//  COLOR TOKENS
+//  COLOR TOKENS - MODERN TEAL THEME
 // ─────────────────────────────────────────
 class AppColors {
-  static const emerald = Color(0xFF1A237E);
-  static const emeraldMid = Color(0xFF283593);
-  static const emeraldLight = Color(0xFF3F51B5);
-  static const gold = Color(0xFF7C4DFF);
-  static const goldLight = Color(0xFFB39DDB);
-  static const cream = Color(0xFFF3F3FF);
-  static const cream2 = Color(0xFFE8E8F5);
-  static const textPrimary = Color(0xFF0D1B46);
-  static const textMuted = Color(0xFF5A5A80);
+  // Primary colors - Teal/Cyan gradient
+  static const primary = Color(0xFF006B63);
+  static const primaryMid = Color(0xFF00897B);
+  static const primaryLight = Color(0xFF00BCD4);
+  static const accent = Color(0xFF00CED1);
+  static const accentLight = Color(0xFF80DEEA);
+  static const background = Color(0xFFF0FFFE);
+  static const background2 = Color(0xFFE0F7FA);
+  static const textPrimary = Color(0xFF0D3B3B);
+  static const textMuted = Color(0xFF5A7A7A);
   static const white = Color(0xFFFFFFFF);
 
-  // Menu accent colors
-  static const jadwalBg = Color(0xFFE8EAF6);
-  static const jadwalIcon = Color(0xFF3F51B5);
-  static const quranBg = Color(0xFFF3E5F5);
-  static const quranIcon = Color(0xFF7C4DFF);
+  // Menu accent colors - Teal gradient palette
+  static const jadwalBg = Color(0xFFB2DFDB);
+  static const jadwalIcon = Color(0xFF00695C);
+  static const quranBg = Color(0xFF80DEEA);
+  static const quranIcon = Color(0xFF00838F);
   static const doaBg = Color(0xFFE0F2F1);
-  static const doaIcon = Color(0xFFBA7517);
-  static const asmaulBg = Color(0xFFEEEDFE);
-  static const asmaulIcon = Color(0xFF533AAB);
-  static const ramadhanBg = Color(0xFFFFF4E6);
-  static const ramadhanIcon = Color(0xFF9C6D2E);
+  static const doaIcon = Color(0xFF004D40);
+  static const asmaulBg = Color(0xFFB2EBF2);
+  static const asmaulIcon = Color(0xFF006064);
+  static const ramadhanBg = Color(0xFFFFF9C4);
+  static const ramadhanIcon = Color(0xFF827717);
+  static const chatbotBg = Color(0xFFC8E6C9);
+  static const chatbotIcon = Color(0xFF1B5E20);
 }
 
 // ─────────────────────────────────────────
@@ -58,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.cream,
+      backgroundColor: AppColors.background,
       drawer: _buildDrawer(),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
@@ -150,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildDrawer() {
     return Drawer(
       child: Container(
-        color: AppColors.cream,
+        color: AppColors.background,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(0, 24, 0, 20),
           children: [
@@ -191,6 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _drawerItem('Asmaul Husna', Icons.brightness_5_outlined, '/asmaul'),
             _drawerItem('Ramadhan', Icons.restaurant, '/ramadhan'),
             _drawerItem('Kiblat', Icons.explore_outlined, '/qiblat'),
+            _drawerItem('Chat Bot', Icons.chat_bubble_outline, '/chatbot'),
             Divider(color: AppColors.textMuted.withOpacity(0.1)),
             _drawerItem('Profil', Icons.person_outline, '/profile'),
             _drawerItem('Keluar', Icons.logout_rounded, null, isRed: true),
@@ -317,7 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFF9C6D2E).withOpacity(0.12),
+              color: AppColors.ramadhanIcon.withOpacity(0.12),
               borderRadius: BorderRadius.circular(14),
             ),
             child: Column(
@@ -330,12 +334,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 32,
                       height: 32,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF9C6D2E).withOpacity(0.15),
+                        color: AppColors.ramadhanIcon.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(
                         Icons.restaurant,
-                        color: Color(0xFF9C6D2E),
+                        color: AppColors.ramadhanIcon,
                         size: 18,
                       ),
                     ),
@@ -350,7 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Ramadhan',
                   style: TextStyle(
-                    color: const Color(0xFF9C6D2E),
+                    color: AppColors.ramadhanIcon,
                     fontSize: 13,
                     fontWeight: FontWeight.w800,
                     letterSpacing: -0.3,
@@ -385,12 +389,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildSmallStat(String value, IconData icon) {
     return Column(
       children: [
-        Icon(icon, color: const Color(0xFF9C6D2E).withOpacity(0.7), size: 13),
+        Icon(icon, color: AppColors.ramadhanIcon.withOpacity(0.7), size: 13),
         const SizedBox(height: 4),
         Text(
           value,
           style: const TextStyle(
-            color: Color(0xFF9C6D2E),
+            color: AppColors.ramadhanIcon,
             fontWeight: FontWeight.w700,
             fontSize: 10,
           ),
@@ -429,9 +433,9 @@ class _HomeScreenState extends State<HomeScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                AppColors.emerald,
-                AppColors.emeraldMid,
-                Color(0xFF1F6B45)
+                AppColors.primary,
+                AppColors.primaryMid,
+                AppColors.primaryLight
               ],
               stops: [0.0, 0.6, 1.0],
             ),
@@ -575,7 +579,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.w700,
-                                    color: AppColors.goldLight,
+                                    color: AppColors.accentLight,
                                     letterSpacing: -0.5,
                                   ),
                                 ),
@@ -588,7 +592,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 value: 0.65,
                                 backgroundColor: Colors.white.withOpacity(0.15),
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                  AppColors.goldLight.withOpacity(0.8),
+                                  AppColors.accentLight.withOpacity(0.8),
                                 ),
                                 minHeight: 3,
                               ),
@@ -622,7 +626,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 6,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: AppColors.goldLight,
+              color: AppColors.accentLight,
             ),
           ),
           const SizedBox(width: 7),
@@ -693,6 +697,14 @@ class _HomeScreenState extends State<HomeScreen> {
         iconBg: AppColors.asmaulBg,
         iconColor: AppColors.asmaulIcon,
       ),
+      _MenuData(
+        title: 'Chat Bot',
+        subtitle: 'AI Assistant',
+        icon: Icons.chat_bubble_outline,
+        route: '/chatbot',
+        iconBg: AppColors.chatbotBg,
+        iconColor: AppColors.chatbotIcon,
+      ),
     ];
 
     return GridView.builder(
@@ -717,7 +729,7 @@ class _HomeScreenState extends State<HomeScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.emerald,
+        color: AppColors.primary,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Stack(
@@ -751,7 +763,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                     fontSize: 9,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.goldLight,
+                    color: AppColors.accentLight,
                   ),
                 ),
               ),
@@ -772,7 +784,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
-                  color: AppColors.goldLight,
+                  color: AppColors.accentLight,
                   letterSpacing: 0.3,
                 ),
               ),
@@ -797,7 +809,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: _StatCard(
             value: '$shalat/5',
             label: 'Shalat',
-            color: AppColors.emeraldLight,
+            color: AppColors.primaryLight,
             progress: shalat / 5,
           ),
         ),
@@ -831,7 +843,7 @@ class _HomeScreenState extends State<HomeScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: AppColors.cream2,
+        color: AppColors.background2,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
@@ -843,7 +855,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               fontSize: 20,
               height: 1.8,
-              color: AppColors.emerald,
+              color: AppColors.primary,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -1052,7 +1064,7 @@ class _StatCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             child: LinearProgressIndicator(
               value: progress.clamp(0.0, 1.0),
-              backgroundColor: AppColors.cream2,
+              backgroundColor: AppColors.background2,
               valueColor: AlwaysStoppedAnimation<Color>(color),
               minHeight: 3,
             ),
